@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="{% static 'dashboard/css/styles.css' %}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="./">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link" href="./room">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Rooms
+                            </a>
+                            <a class="nav-link" href="./profile">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                profile
+                            </a>
+ 
+
+                </nav>
+            </div>
+
+
+
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4" style="margin-top:100px;">
+                        {% comment %} <form class="row g-3" action='add_room' method="POST">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                              <label for="inputEmail4" class="form-label">Title</label>
+                              <input type="test" name="title" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                              <label for="inputPassword4" class="form-label">Room Id</label>
+                              <input type="text" name="room_id" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                              <label for="inputAddress" class="form-label">Address</label>
+                              <input type="text" name="location" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="col-12">
+                              <label for="inputAddress2" class="form-label">About</label>
+                              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="inputAddress2" class="form-label">Description</label>
+                                <input type="text" name='desc'class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                              </div>
+                            <div class="col-md-6">
+                              <label for="inputCity" class="form-label">Floor</label>
+                              <input type="text" name="floor"class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Bed</label>
+                                <input type="text" class="form-control" name="bed"id="inputZip">
+                              </div>
+                            <div class="col-md-2">
+                              <label for="inputZip" class="form-label">bathroom</label>
+                              <input type="text" class="form-control" name="bathroom"id="inputZip">
+                            </div>
+                            <div class="col-12">
+                                <div class="col-md-2" style="float:left">
+                                    <label for="inputZip" class="form-label">Prise</label>
+                                    <input type="text" class="form-control" name="prize"id="inputZip">
+                                  </div>
+                                <div class="col-md-6">
+                                    
+                                    <input type="file" class="form-control" name="photo" id="inputGroupFile01">
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                  Wifi
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                          </form> {% endcomment %}
+
+                          {% comment %} <form method="POST" action="add_room" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            
+                            <p><label for="id_title">Title:</label> <input type="text" name="title" maxlength="50" required="" id="id_title"></p>
+                            <p><label for="id_room_id">Room id:</label> <input type="text" name="room_id" maxlength="15" required="" id="id_room_id"></p>
+                            <p><label for="id_floor">Floor:</label> <input type="number" name="floor" required="" id="id_floor"></p>
+                            <p><label for="id_bed">Bed:</label> <input type="number" name="bed" required="" id="id_bed"></p>
+                            <p><label for="id_bathroom">Bathroom:</label> <input type="number" name="bathroom" required="" id="id_bathroom"></p>
+                            <p><label for="id_location">Location:</label> <textarea name="location" cols="40" rows="10" required="" id="id_location"></textarea></p>
+                            <p><label for="id_about">About:</label> <textarea name="about" cols="40" rows="10" required="" id="id_about"></textarea></p>
+                            <p><label for="id_desc">Desc:</label> <textarea name="desc" cols="40" rows="10" required="" id="id_desc"></textarea></p>
+                            <p><label for="id_prize">Prize:</label> <input type="number" name="prize" required="" id="id_prize"></p>
+                            <p><label for="id_wifi">Wifi:</label> <input type="checkbox" name="wifi" id="id_wifi"></p>
+                            <p><label for="id_photo">Photo:</label> <input type="file" name="photo" accept="image/*" required="" id="id_photo"></p>
+                            <p><label for="id_updated_by">Updated by:</label> <input type="text" value="KundanKumar" name="updated_by" maxlength="30" required="" id="id_updated_by" readonly></p>
+                           
+                            <button type="submit">Submit</button>
+                        </form> {% endcomment %}
+
+
+                        <div class="container mt-5">
+                          <form method="POST" action="add_room" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                  <label for="id_title">Title:</label>
+                                  <input type="text" class="form-control" name="title" maxlength="50" required="" id="id_title">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_room_id">Room id:</label>
+                                  <input type="text" class="form-control" name="room_id" maxlength="15" required="" id="id_room_id">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_floor">Floor:</label>
+                                  <input type="number" class="form-control" name="floor" required="" id="id_floor">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_bed">Bed:</label>
+                                  <input type="number" class="form-control" name="bed" required="" id="id_bed">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_bathroom">Bathroom:</label>
+                                  <input type="number" class="form-control" name="bathroom" required="" id="id_bathroom">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_location">Location:</label>
+                                  <textarea class="form-control" name="location" rows="4" required="" id="id_location"></textarea>
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_about">About:</label>
+                                  <textarea class="form-control" name="about" rows="4" required="" id="id_about"></textarea>
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_desc">Desc:</label>
+                                  <textarea class="form-control" name="desc" rows="4" required="" id="id_desc"></textarea>
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_prize">Prize:</label>
+                                  <input type="number" class="form-control" name="prize" required="" id="id_prize">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_wifi">Wifi:</label>
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" name="wifi" id="id_wifi">
+                                      <label class="form-check-label" for="id_wifi">
+                                          Enable Wifi
+                                      </label>
+                                  </div>
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_photo">Photo:</label>
+                                  <input type="file" class="form-control-file" name="photo" accept="image/*" required="" id="id_photo">
+                              </div>
+                  
+                              <div class="form-group">
+                                  <label for="id_updated_by">Updated by:</label>
+                                  <input type="text" class="form-control" value="{{username}}" name="updated_by" maxlength="30" required=""
+                                      id="id_updated_by" readonly>
+                              </div>
+                  
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                      </div>
+                  
+                    </div>
+                </main>
+
+
+                              
+            
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{% static 'dashboard/js/scripts.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="{% static 'assets/demo/chart-area-demo.js' %}"></script>
+        <script src="{% static 'assets/demo/chart-bar-demo.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+    </body>
+    </html>
+    

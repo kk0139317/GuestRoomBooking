@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<div class="container">
+  <div class="login-page">
+    <div class="form">
+      <form action="create-user" method="POST">
+        {% csrf_token %}
+
+        <div class="register-form">
+          <input type="text" name="name" placeholder="Name">
+          <input type="number" name="phone" placeholder="Phone">
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+          <button>Create</button>
+        </form>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </div>
+      <div class="login-form">
+        <form action="login" method="POST">
+          {% csrf_token %}
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button>Login</button>
+        </form>
+        <p class="message">Not registered? <a href="#">Create an Account</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(".message a").click(function () {
+  $(".register-form").toggle("slow");
+});
+$(".message a").click(function () {
+  $(".login-form").toggle("slow");
+});
+</script>
+
+</body>
+</html>
