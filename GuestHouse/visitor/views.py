@@ -1,4 +1,3 @@
-from crypt import methods
 from urllib import request
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import login , authenticate, logout
