@@ -2,7 +2,6 @@ from django.urls import path
 from django.urls import include, path
 from. import  views
 from django.shortcuts import get_object_or_404, render
-import psutil 
 from owner import views as ownerview
 
 urlpatterns = [
