@@ -15,6 +15,7 @@ urlpatterns = [
     path('login', views.loginuser, name="LoginUser"),
     path('booking/<int:pid>/', views.booking, name="booking"),
     path('logoutuser', ownerview.CustomLogout, name='logout'),
+    path('logout', ownerview.CustomLogout, name='logout'),
     path('profile', views.profile, name='Profile'),
     # path('auth', views.Auth_Log, name="Authntification"),
     # path('create-user', views.CreateUser, name="CreateUser"),
