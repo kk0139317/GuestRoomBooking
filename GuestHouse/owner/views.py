@@ -84,7 +84,7 @@ def add_room(request):
     else:
         return redirect("./login")
 
-def CustomLogout(requst):
+def CustomLogout(request):
     logout(request)
     return redirect('/')
 
