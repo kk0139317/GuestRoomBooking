@@ -10,6 +10,7 @@ urlpatterns = [
     path('room', views.room, name="Room "),
     path('add_room', views.add_room, name="add_room"),
     path('logoutuser', views.CustomLogout, name='logout'),
+    path('logout', views.CustomLogout, name='logout'),
     path('profile', views.profile, name='adminprofile'),
     path('edit/<int:pid>', views.edit, name='edit_room'),
 ]
