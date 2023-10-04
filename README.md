@@ -29,8 +29,21 @@ Visitor Username and Password
   2 Username- user2@gmail.com
     Password- User@123
 
+# OUR PAGES:-
+1.Landing Page - (localhost:8000)
+2.About Page - (localhost:8000/about)
+3.Services Page - (localhost:8000/service)
+4.Rooms Page - (localhost:8000/room)
+5.Contact Page - (localhost:8000/contact) for post request Login required
+6.Login & Create-user Page - (localhost:8000/login)
+7.profile Page - (localhost:8000/profile) Login Required
+8.Logout Ursl - (localhost:8000/logout) or (localhost:/logoutuser) Login Required
 
-
+For Owners
+1.Landing Dashbord Page - (localhost:8000/owner) Login required as owner
+2.Room Detail Page - (localhost:8000/owner/room) Login required as owner
+3.Add Room Page - (localhost:8000/owner/add_room) Login required as owner
+4.Edit Room Page - (localhost:8000/owner/edit/<id>) Login required as owner where id will be dynamic from database
 
 # Out Screenshots
 
